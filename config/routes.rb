@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
   get "/posts", to: "posts#index"
-  get "/duplicates", to: "duplicates#index"
+  #get "/duplicates", to: "duplicates#index"
+  resources :duplicates
 end
