@@ -11,6 +11,32 @@
   </head>
 
   <body>
+    <!-- NavBar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container">
+        <%= link_to "Vabaco", posts_path, { class: "navbar-brand" } %>
+       <!-- <a class="navbar-brand" href="#">Vabaco</a> -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main-nav" aria-expanded="false" aria-label="ნავიგაციის გახსნა">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="main-nav">
+
+          <%= nav_bar do %>
+            <%= nav_link 'პოსტები', posts_path %>
+            <%= nav_link 'დუპლიკატები', duplicates_path %>
+          <% end %>
+
+         <!-- <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" href="#">პოსტები</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">დუპლიკატები</a>
+            </li>
+          </ul> -->
+        </div>
+      </div>
+    </nav>
     <%= yield %>
   </body>
 </html>
