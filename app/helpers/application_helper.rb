@@ -13,3 +13,8 @@ def nav_link(text, path)
       link_to text, path, options
     end
 end
+
+def bi_icon(icon, options = {})
+    iconclass = icon.prepend('bi-')
+    content_tag :i, nil, class: ['bi', iconclass].join(' ')
+end

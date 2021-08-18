@@ -1,0 +1,46 @@
+<p id="notice"><%= notice %></p>
+
+<div class="row d-flex justify-content-center mb-3">
+  <div class="col-4 text-center">
+    <%= link_to new_post_path, class: "btn btn-success" do %>
+      <%= bi_icon 'plus-circle' %> ახალი პოსტი
+    <% end %>
+  </div>
+</div>
+
+
+<table class="table table-sm table-dark table-striped table-hover">
+  <thead>
+    <tr>
+      <th>სათაური</th>
+      <th>კონტენტი</th>
+      <th>თარიღი</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @posts.each do |post| %>
+      <tr>
+        <td><%= post.title %></td>
+        <td><%= post.body.truncate(50) %></td>
+        <td><%= post.created_at.in_time_zone("Tbilisi").strftime("%d/%m/%Y %H:%M") %></td>
+        <td>
+          <%= link_to post, class: 'btn btn-light' do %>
+            <%= bi_icon 'eye-fill' %> ნახვა
+          <% end %>
+        </td>
+        <td>
+          <%= link_to edit_post_path(post), class: 'btn btn-light' do %>
+            <%= bi_icon 'pencil-fill' %> ჩასწორება
+          <% end %>
+        </td>
+        <td>
+          <%= link_to post, method: :delete, data: { confirm: 'ნამდვილად გინდათ პოსტის წაშლა?' }, class: 'btn btn-danger' do %>
+            <%= bi_icon 'trash-fill' %> წაშლა
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

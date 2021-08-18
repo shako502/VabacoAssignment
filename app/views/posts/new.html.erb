@@ -1,0 +1,13 @@
+<div class="row">
+    <div class="col-4 text-left">
+        <%= link_to posts_path, class: "btn btn-secondary" do%>
+            <%= bi_icon 'arrow-left-circle-fill' %> უკან
+        <% end %>
+    </div>
+    <div class="col-4 text-center">
+        <h1>ახალი პოსტი</h1>
+    </div>
+</div>
+
+<%= render 'form', post: @post %>
+

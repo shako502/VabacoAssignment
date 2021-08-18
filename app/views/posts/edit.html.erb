@@ -1,0 +1,19 @@
+<div class="row mb-3">
+    <div class="col-4 text-left">
+        <%= link_to posts_path, class: "btn btn-secondary" do%>
+            <%= bi_icon 'arrow-left-circle-fill' %> უკან
+        <% end %>
+    </div>
+    <div class="col-4 text-center">
+        <%= link_to @post, class: "btn btn-dark" do %>
+            <%= bi_icon 'eye-fill' %> პოსტის ნახვა
+        <% end %>
+    </div>
+    <div class="col-4">
+    </div>
+</div>
+<div class="row">
+    <div class="col-12">
+        <%= render 'form', post: @post %>
+    </div>
+</div>

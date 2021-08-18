@@ -58,3 +58,9 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # Add Bootstrap and JQuery to project
 gem 'bootstrap', '~> 5.0.1'
+
+# Add localization Gem
+gem 'rails-i18n', '~> 6.0.0'
+
+# Add Faker for populating the DB
+gem 'faker'

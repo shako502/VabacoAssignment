@@ -1,0 +1,61 @@
+<p id="notice"><%= notice %></p>
+<div class="row">
+  <div class="col-12">
+    <!-- Post content-->
+    <article>
+      <!-- Post header-->
+      <header class="mb-4">
+        <!-- Post title-->
+        <h1 class="fw-bolder mb-1"><%= @post.title %></h1>
+        <!-- Post date-->
+        <div class="text-muted fst-italic mb-2">დამატების თარიღი: <%= I18n.l(@post.created_at.in_time_zone("Tbilisi"), format: :long, locale: :'ka') %></div>
+        <!-- Post mark_for_deletion status-->
+        <span class="badge bg-secondary"> 
+          <%= bi_icon @post.mark_for_deletion? ? 'check2-circle' : 'x-circle' %> წასაშლელი (mark_for_deletion)
+        </span>
+      </header>
+      <!-- Post content-->
+      <section>
+        <p class="fs-5 mb-4"><%= @post.body %></p>
+      </section>
+    </article>
+    <hr>
+    <div class="row">
+      <div class="col-auto">
+        <%= link_to posts_path, class: "btn btn-sm btn-outline-secondary" do%>
+          <%= bi_icon 'arrow-left-circle' %> უკან
+        <% end %>
+      </div>
+      <div class="col-auto">
+        <%= link_to edit_post_path(@post), class: 'btn btn-sm btn-outline-secondary' do %>
+          <%= bi_icon 'pencil' %> ჩასწორება
+        <% end %>
+      </div>
+    </div>
+    <hr class="mb-4">
+    <!-- Comments section-->
+    <section class="mb-5">
+      <div class="card bg-light">
+        <div class="card-body">
+          <!-- Comment form-->
+          <form class="mb-4">
+            <textarea class="form-control" rows="3"
+            placeholder="Join the discussion and leave a comment!"></textarea>
+          </form>
+          <!-- Comments Loop-->
+          <% @comments.each do |comment| %>
+            <div class="d-flex mb-4">
+              <!-- Parent comment-->
+              <div class="flex-shrink-0"><img class="rounded-circle"
+                  src="https://dummyimage.com/50x50/ced4da/6c757d.jpg" alt="..." /></div>
+              <div class="ms-3">
+                <div class="fw-bold">Anonymous</div>
+                <%= comment.body %>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
