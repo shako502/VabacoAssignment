@@ -1,0 +1,48 @@
+<% unless !comment.persisted? %>
+<div class="d-flex mb-4 single-comment">
+    <div class="flex-shrink-0"><img class="rounded-circle"
+        src="https://dummyimage.com/50x50/ced4da/6c757d.jpg" alt="..." />
+    </div>
+    <div class="ms-3 flex-fill">
+        <div class="fw-bold">Anonymous</div>
+        <div class="comment-body">
+            <span class="comment-body-text">
+                <%= comment.body %>
+            </span>
+            <div class="comment-edit-form d-none">
+                <%= render 'comments/form', comment: comment %>
+            </div>
+        </div>
+    </div>
+    <div class="ms-auto align-self-center comment-actions">
+        <div class="comment-actions-main">
+            <ul style="list-style: none; margin:0;">
+                <li>
+                    <a href="" class="edit-comment">
+                        <%= bi_icon 'pencil-fill' %>
+                    </a>
+                </li>
+                <li>
+                    <%= link_to [@post, comment], method: :delete do  %>
+                        <%= bi_icon 'trash-fill' %>
+                    <% end %>
+                </li>
+            </ul>
+        </div>
+        <div class="comment-actions-edit d-none">
+            <ul style="list-style: none;margin:0;">
+                <li>
+                    <a href="" class="save-edit-comment">
+                        <%= bi_icon 'check-circle-fill' %>
+                    </a>
+                </li>
+                <li>
+                    <a href="" class="exit-editing-comment">
+                        <%= bi_icon 'x-circle-fill' %>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<% end %>
