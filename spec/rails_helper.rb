@@ -63,4 +63,16 @@ RSpec.configure do |config|
   # config.filter_gems_from_backtrace("gem name")
 
   config.include RSpec::Rails::RequestExampleGroup, type: :request, file_path: /spec\/api/
+
+  # Rewind FactoryBot Sequences
+  config.after do
+    FactoryBot.rewind_sequences
+  end
+
+  # Reset Primary Key sequences
+  config.before(:suite) do
+    ActiveRecord::Base.connection.tables.each do |t|
+      ActiveRecord::Base.connection.reset_pk_sequence!(t)
+    end
+  end
 end
