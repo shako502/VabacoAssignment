@@ -1,5 +1,4 @@
 require 'rails_helper'
-require 'pp'
 
 describe "API::V1:Posts" do
     let!(:post_with_comments) { FactoryBot.create(:post_with_comments) }
