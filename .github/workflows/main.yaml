@@ -67,4 +67,4 @@ jobs:
           KNAPSACK_PRO_LOG_LEVEL: info
           KNAPSACK_PRO_FIXED_QUEUE_SPLIT: true
         run: |
-          bundle exec rake knapsack_pro:queue:rspec
+          bundle exec rake knapsack_pro:rspec
