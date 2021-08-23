@@ -2,7 +2,7 @@
 
 This repository is for Practical assignment provided by Vabaco. The app is written on Ruby with Ruby on Rails framework. The app provides simple Post-Comments system and the API service.
 
-The app is based on tasks provided in: [Practical Assignment](https://github.com/shako502/VabacoAssignment/VabacoTasks/Practical-Assignment.pdf)
+The app is based on tasks provided in: [Practical Assignment](https://github.com/shako502/VabacoAssignment/blob/main/VabacoTasks/Practical-Assignment.pdf)
 
 ## Setup
 
@@ -88,7 +88,7 @@ The REST API to the app is described below.
             "mark_for_deletion": false,
             "created_at": "2021-08-18T23:24:45.329+04:00"
         },
-        ...
+        {'...'}
 }
 ```
 ---
@@ -143,7 +143,7 @@ The REST API to the app is described below.
             "body": "comment",
             "created_at": "2021-08-22T20:59:28.786+04:00"
         },
-        ...
+        {'...'}
 }
 ```
 ---
@@ -265,12 +265,14 @@ All the time :relieved:
 - Writing markup
 - Writing JS
 - Testing tables and actions
+
 2 Hours
 
 #### Preparing Database for posts and comments
 - Writing has_many, belongs to relationship 
 - Updating Routes
 - Populating DB with fake data
+
 1 Hour
 
 #### Creating CRUD controller for posts
@@ -283,6 +285,7 @@ All the time :relieved:
 - Generating default structure
 - Updating routes for the API
 - Creating base controller for the API
+
 1 Hour
 
 #### Creating API endpoint for Posts
