@@ -29,12 +29,6 @@ jobs:
           - 6379:6379
         options: --entrypoint redis-server
 
-    strategy:
-      fail-fast: false
-      matrix:
-        ci_node_total: [2]
-        ci_node_index: [0, 1]
-
     env:
       RAILS_ENV: test
       GEMFILE_RUBY_VERSION: 2.7.3
@@ -57,14 +51,8 @@ jobs:
 
       - name: Run tests
         env:
-          KNAPSACK_PRO_TEST_SUITE_TOKEN_RSPEC: ${{ secrets.KNAPSACK_PRO_TEST_SUITE_TOKEN_RSPEC }}
-          KNAPSACK_PRO_TEST_SUITE_TOKEN_CUCUMBER: ${{ secrets.KNAPSACK_PRO_TEST_SUITE_TOKEN_CUCUMBER }}
-          KNAPSACK_PRO_TEST_SUITE_TOKEN_MINITEST: ${{ secrets.KNAPSACK_PRO_TEST_SUITE_TOKEN_MINITEST }}
-          KNAPSACK_PRO_TEST_SUITE_TEST_UNIT: ${{ secrets.KNAPSACK_PRO_TEST_SUITE_TOKEN_TEST_UNIT }}
-          KNAPSACK_PRO_TEST_SUITE_TOKEN_SPINACH: ${{ secrets.KNAPSACK_PRO_TEST_SUITE_TOKEN_SPINACH }}
-          KNAPSACK_PRO_CI_NODE_TOTAL: ${{ matrix.ci_node_total }}
-          KNAPSACK_PRO_CI_NODE_INDEX: ${{ matrix.ci_node_index }}
-          KNAPSACK_PRO_LOG_LEVEL: info
-          KNAPSACK_PRO_FIXED_QUEUE_SPLIT: true
+          RAILS_ENV: test
+          PGHOST: localhost
+          PGUSER: postgres
         run: |
-          bundle exec rake knapsack_pro:rspec
+          bundle exec rspec spec
